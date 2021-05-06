@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfcraft.web.mapper.ExcelMapper">
+
+    <resultMap id="BaseResultMap" type="com.zfcraft.web.entity.Tbagent">
+        <id column="job_number" jdbcType="INTEGER" property="job_number"/>
+        <result column="department" jdbcType="VARCHAR" property="department"/>
+        <result column="region" jdbcType="VARCHAR" property="region"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="idcard" jdbcType="VARCHAR" property="idcard"/>
+        <result column="company_rankings" jdbcType="INTEGER" property="company_rankings"/>
+
+    </resultMap>
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO
+        agent(job_number,department,region,username,idcard,company_rankings,department_rankings,region_rankings)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.job_number},#{item.department},#{item.region},#{item.username},#{item.idcard},#{item.company_rankings})
+
+        </foreach>
+    </insert>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+
+
+    <classPathEntry
+            location="src/main/resources/mysql-connector-java-5.1.6.jar"/>
+
+    <context id="context1">
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Criteria"/>
+        </plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 请修改此处地址 -->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://115.29.161.170:3306/ljh5?useUnicode=true"
+                        userId="testing"
+                        password="1376181069@HI"/>
+        <!--<jdbcConnection connectionURL="jdbc:h2:file:./target/temp_db;DATABASE_TO_UPPER=false;"-->
+        <!--driverClass="org.h2.Driver"-->
+        <!--userId="sa" password=""/>-->
+
+        <javaModelGenerator targetPackage="com.neo.entity" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.neo.mapperxml" targetProject="src/main/java"/>
+        <javaClientGenerator targetPackage="com.neo.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+        <table tableName="agent" domainObjectName="Tbagent">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
